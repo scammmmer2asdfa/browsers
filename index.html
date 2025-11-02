@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Downloads</title>
+  <style>
+    /* Frosted glass UI */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 40px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background 1s ease-in-out;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background: rgba(153, 153, 151, 0.4);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .download-item {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .download-item:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .download-item span {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Downloads</h1>
+
+    <div class="download-item" onclick="downloadFile('https://drive.usercontent.google.com/download?id=1KWfCsHVlHFbC_uZlEBwGEecrfdksVyow&export=download&authuser=0&confirm=t&uuid=b6509128-bb8e-4313-9d48-5ba7179587a0&at=AKSUxGMiswdtp96G1hYe6dsQ6aOA:1762119723659')">
+      <span>1Browser</span>
+    </div>
+
+    <div class="download-item" onclick="downloadFile('https://drive.usercontent.google.com/download?id=1WoPC_KDjr11ZYNh9Yo5qXIW3Bf3Ukf5h&export=download&authuser=0&confirm=t&uuid=f862e35f-d966-42ad-9d91-2a084ede2cdc&at=AKSUxGOfBRQkP3UcT_ERb-FHgNXD:1762119987867')">
+      <span>Aloha Browser</span>
+    </div>
+
+    <div class="download-item" onclick="downloadFile('https://drive.usercontent.google.com/download?id=1sY00lGot8Xe8JKFfb3vXXsqLcA97Tabi&export=download&authuser=0&confirm=t&uuid=6f26d225-6bcc-4ca4-994e-192990094389&at=AKSUxGNrMfT9JelxbVhT9WJU3qIB:1762120010794')">
+      <span>Pale Moon</span>
+    </div>
+
+    <div class="download-item" onclick="downloadFile('https://drive.usercontent.google.com/download?id=1iEy82_mM2u94u7G1EzcdLxy1liLlDLtJ&export=download&authuser=0&confirm=t&uuid=995bf998-3794-4187-9836-8ceb9f091769&at=AKSUxGP8oeAGCQqQc35ucYmvlZOr:1762120066829')">
+      <span>Tor Browser</span>
+    </div>
+  </div>
+
+  <script>
+    // use the same background URLs from your Client Launcher
+    const backgrounds = [
+      'https://drive.google.com/uc?id=1D3iFZuhPifnP5uYPdzQ2W7XfT1S3kU7T', // background 1
+      'https://drive.google.com/uc?id=1OaWfLz4p4lg4IvxgMquTSXw8hbM5O_xN'  // background 2
+    ];
+
+    const bgIndex = Math.random() < 0.5 ? 0 : 1;
+    document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
+
+    // --- download handler ---
+    function downloadFile(filePath) {
+      const link = document.createElement('a');
+      link.href = filePath;
+      link.download = filePath.split('/').pop();
+      document.body.appendChild(link);
+      try { link.click(); } 
+      catch (e) { window.open(filePath, '_blank'); }
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
