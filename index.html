@@ -86,15 +86,19 @@
     <div class="download-item" onclick="downloadFile('https://drive.usercontent.google.com/download?id=1iEy82_mM2u94u7G1EzcdLxy1liLlDLtJ&export=download&authuser=0&confirm=t&uuid=995bf998-3794-4187-9836-8ceb9f091769&at=AKSUxGP8oeAGCQqQc35ucYmvlZOr:1762120066829')">
       <span>Tor Browser</span>
     </div>
+
+    <div class="download-item" onclick='downloadFile('https://drive.usercontent.google.com/download?id=1MyxCRWc-bULqwwUNHvQCWTOFmnmm3Not&export=download&authuser=0&confirm=t&uuid=1a748f20-15b4-47ce-9081-3f7f74a06746&at=AKSUxGM3iWnfCunRxPPNCdmJn3B4:1762120407708')">
+      <span>Helium Browser</span>
   </div>
 
   <script>
-    // use the same background URLs from your Client Launcher
     const backgrounds = [
-      'https://drive.google.com/uc?id=1D3iFZuhPifnP5uYPdzQ2W7XfT1S3kU7T', // background 1
-      'https://drive.google.com/uc?id=1OaWfLz4p4lg4IvxgMquTSXw8hbM5O_xN'  // background 2
+      "https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg",
+      "https://images.pexels.com/photos/20042348/pexels-photo-20042348.jpeg",
+      "https://images.pexels.com/photos/19160283/pexels-photo-19160283.jpeg",
+      "https://images.pexels.com/photos/28438030/pexels-photo-28438030.jpeg"
     ];
-
+    document.body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
     const bgIndex = Math.random() < 0.5 ? 0 : 1;
     document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
 
